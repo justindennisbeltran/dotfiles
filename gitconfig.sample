@@ -6,12 +6,13 @@
   cot = checkout --track
   sf = submodule foreach
   c  = "!git log --oneline | wc -l "
+  ru = remote update
   ignored = "!git ls-files --others -i --exclude-standard --directory"
-  pushsub = submodule foreach "git push origin master"
-  pullsub = submodule foreach "git pull origin master"
+  pushsub = submodule foreach "git push origin main"
+  pullsub = submodule foreach "git pull origin main"
 [user]
-  name = You Name
-  email = user@example.com
+  name = Justin Beltran
+  email = justindennisbeltran@gmail.com
 [core]
   legacyheaders = false
   excludesfile = ~/.gitexclude
@@ -29,5 +30,21 @@
   statusHints = false
 [push]
   default = tracking
+  autoSetupRemote = true
 [rerere]
   enabled = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "sourcetree"]
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[commit]
+  template = ~/.stCommitMsg
+[remote "origin"]
+  prune = true
