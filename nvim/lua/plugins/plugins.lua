@@ -26,10 +26,10 @@ return {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
-    -- stylua: ignore
-    close_command = function(n) require("mini.bufremove").delete(n, false) end,
-    -- stylua: ignore
-    right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
+        -- stylua: ignore
+        close_command = function(n) require("mini.bufremove").delete(n, false) end,
+        -- stylua: ignore
+        right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
         diagnostics = "nvim_lsp",
         always_show_bufferline = true,
         diagnostics_indicator = function(_, _, diag)
@@ -157,4 +157,7 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
+
+  -- copilot
+  { "github/copilot.vim" },
 }
