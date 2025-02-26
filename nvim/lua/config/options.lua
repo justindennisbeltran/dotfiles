@@ -14,3 +14,5 @@ vim.opt.conceallevel = 0
 
 -- Set undodir
 vim.opt.undodir = vim.fn.expand("~/.config/nvim/undo")
+
+vim.opt.foldmethod = "manual"
